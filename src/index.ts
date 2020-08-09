@@ -2,11 +2,13 @@ import express, { Application, Request, Response } from 'express';
 import Twilio from 'twilio';
 import * as dotenv from 'dotenv';
 import requireKey from './requireKey';
+import cors from 'cors';
 
 dotenv.config();
 
 const app: Application = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(requireKey)
 
